@@ -14,13 +14,8 @@ public class BobcatServer {
 	}
 
 	public void startup() {
-		try {
-			logger.info("Starting up server........");
-
-			// do not close app-context automatically - this is our container!!
-			@SuppressWarnings("resource")
-			AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-			
+		logger.info("Starting up server........");
+		try (AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext()){
 			applicationContext.registerShutdownHook();
 			applicationContext.register(RootConfiguration.class);
 			applicationContext.refresh();
