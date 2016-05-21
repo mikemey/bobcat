@@ -1,18 +1,8 @@
-Template - Embedded Jetty/SpringMVC/Thymeleaf Application
-=========================================================
+Bobcat - pick your child's name
+===============================
 
-## Running
-### With Maven
-    mvn exec:java -Dexec.mainClass=ca.unx.template.Main
+Stores names and ranks them using the user's input (competition tab) and the ELO ranking system.
 
-### Basic Jar
-The default package goal will build a jar in the target directory with
-dependency jars copied into target/lib.
-    mvn package
-    java -jar target/jetty-springmvc-thymeleaf-template-0.0.1-SNAPSHOT.jar
-
-### Fat Jar
-If you would rather have a single jar that contains all the
-dependencies, use the 'fatjar' profile.
-    mvn -Pfatjar package
-    java -jar target/jetty-springmvc-thymeleaf-template-0.0.1-SNAPSHOT.jar
+### Techical details:
+- usual maven-built project: `mvn clean package`
+- use MongoDB as a data storage, configured in `bobcat.properties` files (in /src and /test directories)
