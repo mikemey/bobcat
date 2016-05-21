@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController extends CommonDataController {
 	private final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-	@RequestMapping({ "/" })
+	@RequestMapping({ "/", "index" })
 	public String getIndex() {
 		logger.info("{} [Index]", LMT.PAGE_REQ);
 		return "index";
