@@ -27,7 +27,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
  */
 @Configuration
 @Import({ JettyConfiguration.class, SecurityConfiguration.class })
-@PropertySource("bobcat.properties")
+@PropertySource("classpath:bobcat.properties")
 @EnableMongoRepositories(basePackages = "uk.mm.bobcat.service.repos")
 public class RootConfiguration {
 	@Value("${server.host:localhost}")

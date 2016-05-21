@@ -33,7 +33,7 @@ import uk.mm.bobcat.interceptors.IPLogInterceptor;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "uk.mm.bobcat.controller", "uk.mm.bobcat.service", "uk.mm.bobcat.domain" })
-@PropertySource("bobcat.properties")
+@PropertySource("classpath:bobcat.properties")
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
