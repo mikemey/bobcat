@@ -11,9 +11,9 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 
 import com.mongodb.Mongo;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 /**
  * The root application context.
@@ -49,8 +49,8 @@ public class RootConfiguration {
 	}
 
 	@Bean
-	public MappingJacksonHttpMessageConverter mappingJacksonHttpMessageConverter() {
-		return new MappingJacksonHttpMessageConverter();
+	public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
+		return new MappingJackson2HttpMessageConverter();
 	}
 
 	@Bean
