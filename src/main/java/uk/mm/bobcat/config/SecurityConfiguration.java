@@ -2,50 +2,56 @@ package uk.mm.bobcat.config;
 
 import org.eclipse.jetty.security.ConstraintMapping;
 import org.eclipse.jetty.security.ConstraintSecurityHandler;
+import org.eclipse.jetty.security.HashLoginService;
 import org.eclipse.jetty.security.SecurityHandler;
-import org.eclipse.jetty.security.authentication.FormAuthenticator;
+import org.eclipse.jetty.security.authentication.BasicAuthenticator;
 import org.eclipse.jetty.util.security.Constraint;
-import org.eclipse.jetty.util.ssl.SslContextFactory;
+import org.eclipse.jetty.util.security.Credential;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import uk.mm.bobcat.service.BobcatLoginService;
 
 /**
  * Configure the embedded Jetty server and the SpringMVC dispatcher servlet.
  */
 @Configuration
-@ComponentScan(basePackages = { "uk.mm.bobcat.security" })
+@ComponentScan(basePackages = {"uk.mm.bobcat.security"})
 public class SecurityConfiguration {
 
-	@Bean
-	public SecurityHandler securityHandler() {
-		String realm = "Bobcat server";
+    @Value("${server.user:}")
+    private String user;
 
-		Constraint constraint = new Constraint();
-		constraint.setName(Constraint.__FORM_AUTH);
-		constraint.setRoles(new String[] { "user", "admin" });
-		constraint.setAuthenticate(true);
+    @Value("${server.password:}")
+    private String password;
 
-		ConstraintSecurityHandler csh = new ConstraintSecurityHandler();
-		csh.setAuthenticator(new FormAuthenticator("/login", "/login", true));
-		csh.setRealmName(realm);
-		csh.addConstraintMapping(createMapping("/competition/*", constraint));
-		BobcatLoginService loginService = loginService();
-		csh.setLoginService(loginService);
-		return csh;
-	}
+    @Bean
+    public SecurityHandler securityHandler() {
+        String realm = "Bobcat server";
+        HashLoginService loginService = new HashLoginService();
+        loginService.putUser(user, Credential.getCredential(password), new String[]{"parent"});
+        loginService.setName(realm);
 
-	private ConstraintMapping createMapping(String pathSpec, Constraint constraint) {
-		ConstraintMapping constraintMapping = new ConstraintMapping();
-		constraintMapping.setConstraint(constraint);
-		constraintMapping.setPathSpec(pathSpec);
-		return constraintMapping;
-	}
+        Constraint constraint = new Constraint();
+        constraint.setName(Constraint.__BASIC_AUTH);
+        constraint.setRoles(new String[]{"parent"});
+        constraint.setAuthenticate(true);
 
-	@Bean
-	public BobcatLoginService loginService() {
-		return new BobcatLoginService();
-	}
+        ConstraintSecurityHandler csh = new ConstraintSecurityHandler();
+        csh.setAuthenticator(new BasicAuthenticator());
+        csh.setRealmName(realm);
+        csh.addConstraintMapping(createMapping("/competition/*", constraint));
+        csh.addConstraintMapping(createMapping("/ranking/add_name", constraint));
+        csh.addConstraintMapping(createMapping("/ranking/remove_name", constraint));
+        csh.addConstraintMapping(createMapping("/ranking/modify_name", constraint));
+        csh.setLoginService(loginService);
+        return csh;
+    }
+
+    private ConstraintMapping createMapping(String pathSpec, Constraint constraint) {
+        ConstraintMapping constraintMapping = new ConstraintMapping();
+        constraintMapping.setConstraint(constraint);
+        constraintMapping.setPathSpec(pathSpec);
+        return constraintMapping;
+    }
 }

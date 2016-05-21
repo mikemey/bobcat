@@ -1,7 +1,6 @@
 package uk.mm.bobcat.config;
 
-import java.net.UnknownHostException;
-
+import com.mongodb.Mongo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,52 +10,52 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
-import com.mongodb.Mongo;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+
+import java.net.UnknownHostException;
 
 /**
  * The root application context.
- * <p/>
+ * <p>
  * Beans can also be configured by XML in root-context.xml which is imported by
  * this context class.
- * <p/>
+ * <p>
  * Component scanning is also done to pickup any components other than
  *
  * @Controllers. @Controllers will be picked up by the SpringMVC context.
  */
 @Configuration
-@Import({ JettyConfiguration.class, SecurityConfiguration.class })
+@Import({JettyConfiguration.class, SecurityConfiguration.class})
 @PropertySource("classpath:bobcat.properties")
 @EnableMongoRepositories(basePackages = "uk.mm.bobcat.service.repos")
 public class RootConfiguration {
-	@Value("${server.host:localhost}")
-	private String serverHost;
-	@Value("${db.host:localhost}")
-	private String databaseHost;
-	@Value("${db.port:27017}")
-	private int databasePort;
-	@Value("${db.name:}")
-	private String databaseName;
-	@Value("${db.user:}")
-	private String databaseUser;
-	@Value("${db.password:}")
-	private String databasePassword;
+    @Value("${server.host:localhost}")
+    private String serverHost;
+    @Value("${db.host:localhost}")
+    private String databaseHost;
+    @Value("${db.port:27017}")
+    private int databasePort;
+    @Value("${db.name:}")
+    private String databaseName;
+    @Value("${db.user:}")
+    private String databaseUser;
+    @Value("${db.password:}")
+    private String databasePassword;
 
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
-		return new PropertySourcesPlaceholderConfigurer();
-	}
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
-	@Bean
-	public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
-		return new MappingJackson2HttpMessageConverter();
-	}
+    @Bean
+    public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
+        return new MappingJackson2HttpMessageConverter();
+    }
 
-	@Bean
-	public MongoTemplate mongoTemplate() throws UnknownHostException {
-		UserCredentials credentials = new UserCredentials(databaseUser, databasePassword);
-		Mongo mongo = new Mongo(databaseHost, databasePort);
-		return new MongoTemplate(mongo, databaseName, credentials);
-	}
+    @Bean
+    public MongoTemplate mongoTemplate() throws UnknownHostException {
+        UserCredentials credentials = new UserCredentials(databaseUser, databasePassword);
+        Mongo mongo = new Mongo(databaseHost, databasePort);
+        return new MongoTemplate(mongo, databaseName, credentials);
+    }
 }
