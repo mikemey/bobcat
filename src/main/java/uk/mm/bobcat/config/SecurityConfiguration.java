@@ -48,24 +48,4 @@ public class SecurityConfiguration {
 	public BobcatLoginService loginService() {
 		return new BobcatLoginService();
 	}
-
-	@Bean
-	public SslContextFactory sslContextFactory() {
-		SslContextFactory sslContextFactory = new SslContextFactory();
-		String keyStorePath = "keystore/keystore.jks";
-		String keyStorePassword = "caterpillar";
-		sslContextFactory.setKeyStorePath(keyStorePath);
-		sslContextFactory.setKeyStorePassword(keyStorePassword);
-		sslContextFactory.setTrustStorePath(keyStorePath);
-		sslContextFactory.setTrustStorePassword(keyStorePassword);
-		sslContextFactory.setExcludeCipherSuites(
-				"SSL_RSA_WITH_DES_CBC_SHA",
-				"SSL_DHE_RSA_WITH_DES_CBC_SHA",
-				"SSL_DHE_DSS_WITH_DES_CBC_SHA",
-				"SSL_RSA_EXPORT_WITH_RC4_40_MD5",
-				"SSL_RSA_EXPORT_WITH_DES40_CBC_SHA",
-				"SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA",
-				"SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA");
-		return sslContextFactory;
-	}
 }

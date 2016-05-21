@@ -28,9 +28,6 @@ public class JettyConfiguration {
 	@Autowired
 	private SecurityHandler securityHandler;
 
-	@Autowired
-	private SslContextFactory sslContextFactory;
-
 	@Autowired(required = false)
 	private String webappResourcePath;
 
@@ -48,7 +45,7 @@ public class JettyConfiguration {
 		Server server = new Server();
 		/* Create a basic connector. */
 
-		ServerConnector httpConnector = new ServerConnector(server, sslContextFactory);
+		ServerConnector httpConnector = new ServerConnector(server);
 		httpConnector.setPort(serverPort);
 		server.addConnector(httpConnector);
 
