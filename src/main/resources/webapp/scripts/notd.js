@@ -19,7 +19,7 @@ function modifyName(elmt, name) {
 	}
 }
 function postNewName(elmt, newname) {
-	$.post('/ranking/add_name', {
+	$.post('ranking/add_name', {
 		name : newname
 	}, function() {
 		var ulElement = $(elmt.parentNode);

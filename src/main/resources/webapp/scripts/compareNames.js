@@ -1,5 +1,5 @@
 function displayRandomNamePair() {
-	$.get('/competition/getnamepair' + stupidIE(), function(data) {
+	$.get('competition/getnamepair' + stupidIE(), function(data) {
 		var left = $('#left');
 		var right = $('#right');
 		left.children(0).text(data.first);
@@ -21,7 +21,7 @@ function preferName(elmt) {
 		displayRandomNamePair();
 	});
 	var otherName = $(otherId).children(0).text();
-	$.post('/competition/matchresult', {
+	$.post('competition/matchresult', {
 		winner : selectedName,
 		loser : otherName
 	}, function(data) {
