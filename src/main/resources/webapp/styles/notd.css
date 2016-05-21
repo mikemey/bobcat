@@ -71,5 +71,5 @@ div#content table {
 }
 
 .plussign {
-	background: url("/images/plus_small.png") right top no-repeat;
+	background: url("../images/plus_small.png") right top no-repeat;
 }
