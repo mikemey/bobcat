@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta th:replace="fragments/html_head"></meta>
-<link rel="stylesheet" type="text/css" href="/styles/ranking.css" />
+<link rel="stylesheet" type="text/css" href="/bobcat/styles/ranking.css" />
 </head>
 <body>
 	<div th:replace="fragments/menu_bar"></div>
@@ -26,10 +26,10 @@
 					<td>
 						<span th:text="${rank.name}">??</span>
 						<a th:onclick="'javascript:removeName(\'' + ${rank.name} + '\');'">
-							<img class="icon" alt="Remove name" src="/images/text-icons/remove.png" title="Remove name" />
+							<img class="icon" alt="Remove name" src="/bobcat/images/text-icons/remove.png" title="Remove name" />
 						</a>
 						<a th:onclick="'javascript:modifyName(\'' + ${rank.name} + '\');'">
-							<img class="icon" alt="Edit name" src="/images/text-icons/modify.png" title="Edit name" />
+							<img class="icon" alt="Edit name" src="/bobcat/images/text-icons/modify.png" title="Edit name" />
 						</a>
 					</td>
 					<td th:text="${rank.ratingPoints}">??</td>
@@ -38,6 +38,6 @@
 			</tbody>
 		</table>
 	</div>
-	<script type="text/javascript" src="/scripts/ranking.js"></script>
+	<script type="text/javascript" src="/bobcat/scripts/ranking.js"></script>
 </body>
 </html>
