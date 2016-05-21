@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="fragments/html_head"></meta>
+<link rel="stylesheet" type="text/css" href="/styles/notd.css" />
+</head>
+<body>
+	<div th:replace="fragments/menu_bar"></div>
+
+	<div id="content">
+		<h2>Today's baby name is:</h2>
+		<div th:replace="fragments/name_candidate"></div>
+		<table>
+			<tbody>
+				<tr id="randomNameRow">
+					<td>Not happy with it?&nbsp;&nbsp;<a href="javascript:void(0)" onclick="findNewName();">Generate more...</a></td>
+					<td id="randomNameCell"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="/scripts/notd.js"></script>
+</body>
+</html>

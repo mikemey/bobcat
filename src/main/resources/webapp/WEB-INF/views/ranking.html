@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="fragments/html_head"></meta>
+<link rel="stylesheet" type="text/css" href="/styles/ranking.css" />
+</head>
+<body>
+	<div th:replace="fragments/menu_bar"></div>
+	<div id="content">
+		<h2>Names currently in the ranking</h2>
+		<table id="ranking">
+			<thead>
+				<tr>
+					<td>Pos</td>
+					<td>Name</td>
+					<td>Points</td>
+					<td>Match count</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${#arrays.isEmpty(ranking)}">
+					<td colspan="4" style="text-align: center;">No names rated yet!</td>
+				</tr>
+				<tr th:each="rank, status : ${ranking}">
+					<td th:text="${status.count}">??</td>
+					<td>
+						<span th:text="${rank.name}">??</span>
+						<a th:onclick="'javascript:removeName(\'' + ${rank.name} + '\');'">
+							<img class="icon" alt="Remove name" src="/images/text-icons/remove.png" title="Remove name" />
+						</a>
+						<a th:onclick="'javascript:modifyName(\'' + ${rank.name} + '\');'">
+							<img class="icon" alt="Edit name" src="/images/text-icons/modify.png" title="Edit name" />
+						</a>
+					</td>
+					<td th:text="${rank.ratingPoints}">??</td>
+					<td th:text="${rank.matchCounter}">??</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="/scripts/ranking.js"></script>
+</body>
+</html>

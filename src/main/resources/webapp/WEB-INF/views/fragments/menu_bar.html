@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<img id="toolbar_image" src="/images/bobcat_logo.png" alt="Logo" title="Logo" />
+	<div id="toolbar">
+		<div id="toolbar_title" onclick="location.href='/'">
+			<h1>Project Bobcat</h1>
+			<h3>
+				<!--The New, the Exciting, the Unknown-->
+				&nbsp;
+			</h3>
+		</div>
+		<div id="toolbar_menu">
+			<a class="menu_link" href="/">Home</a>
+			<a class="menu_link" href="/notd">Name Of The Day</a>
+			<a class="menu_link" href="/competition">Name Competition</a>
+			<a class="menu_link" href="/ranking">Name Ranking</a>
+		</div>
+	</div>
+	<p id="nameCount" th:text="${nameCount}? |currently ${nameCount} unique female names in repository| : '&nbsp;'">&nbsp;</p>
+</body>
+</html>

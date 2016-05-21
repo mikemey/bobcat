@@ -1,0 +1,89 @@
+html {
+	background-color: white;
+}
+
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 14px;
+	letter-spacing: 0.3px;
+	line-height: 145%;
+	text-align: left;
+	text-shadow: -0.3px -0.3px 0.3px #AAAAAA;
+	background-color: #FFFFC3;
+	min-width: 745px;
+	max-width: 900px;
+	height: 100%;
+	min-height: 450px;
+	margin: 0 auto;
+	padding-bottom: 45px;
+	box-shadow: 0 3px 10px 1px #DDDD96;
+}
+
+h1,h2,h3,h4 {
+	letter-spacing: 0.6px;
+}
+
+a {
+	outline: none;
+	text-shadow: none;
+}
+
+#toolbar {
+	font-family: Verdana, Helvetica, sans-serif;
+	background-color: #BFC8AA;
+	box-shadow: 0px -2px 10px 1px #9AA57D;
+	margin: 0;
+	display: block;
+	padding: 20px 20px 0px 20px;
+}
+
+#toolbar_title {
+	cursor: pointer;
+	display: inline-block;
+}
+
+#toolbar_image {
+	float: right;
+	padding: 20px 20px 0 0;
+}
+
+#toolbar_menu {
+	margin: 0 auto;
+	height: 30px;
+	padding: 0;
+}
+
+.menu_link {
+	font-size: 14px;
+	color: #003182;
+	float: left;
+	text-decoration: none;
+	letter-spacing: 0.6px;
+	margin: 0 8px 0 0;
+	padding: 8px 13px 5px 13px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #CBCBCB;
+	box-shadow: 0 2px 6px 1px #7E8591;
+}
+
+.menu_link:hover {
+	background-color: #E0E0E0;
+	box-shadow: 0 2px 4px 1px #969FAD;
+}
+
+#content {
+	padding: 0 20px;
+}
+
+#nameCount {
+	font-size: 9px;
+	font-family: Helvetica, sans-serif;
+	margin: 4px 20px 15px 0;
+	text-align: right;
+	text-shadow: none;
+}
+
+.errorpage {
+	text-align: center;
+}

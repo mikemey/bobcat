@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="fragments/html_head"></meta>
+</head>
+<body>
+	<div th:replace="fragments/menu_bar"></div>
+
+	<div id="content" class="errorpage">
+		<p>An unexpected error occured!</p>
+		<script>
+			document.write('<a href="' + document.referrer + '">Back</a>');
+		</script>
+		<br /> <a href="/">Home</a>
+	</div>
+</body>
+</html>

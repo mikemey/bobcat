@@ -1,0 +1,45 @@
+div.cmp {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1px;
+}
+
+div.textbg {
+	background-color: #FFFFA0;
+}
+
+div#cmpTitle {
+	padding: 3px;
+}
+
+.nameArea {
+	background-color: #DBDB8A;
+	width: 50%;
+	cursor: pointer;
+}
+
+.nameArea:hover {
+	background-color: #DBDB5A;
+}
+
+div#left {
+	float: left;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 1px solid #4A9929;
+}
+
+div#right {
+	float: right;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 1px solid #4A9929;
+}
+
+div#cmpFooter {
+	clear: both;
+	padding: 3px;
+}

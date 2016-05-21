@@ -1,0 +1,65 @@
+#ranking {
+	font-family: Verdana, sans-serif;
+	margin: 20px auto;
+	width: 400px;
+	border-collapse: collapse;
+	text-shadow: none;
+}
+
+h2 {
+	text-align: center;
+}
+
+#ranking thead tr {
+	background-color: #CBCBCB;
+	font-size: 0.9em;
+}
+
+#ranking thead td {
+	padding: 3px 5px;
+}
+
+#ranking td {
+	border: 1px solid #9F9F9F;
+	padding: 3px;
+	width: 1px;
+	white-space: nowrap;
+}
+
+#ranking td:nth-child(1) {
+	text-align: center;
+}
+
+#ranking td:nth-child(2) {
+	text-align: left;
+	width: auto;
+}
+
+#ranking td:nth-child(2) span {
+	float: left;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	border: 0px;
+}
+
+.icon:hover {
+	background: url('/images/text-icons/bg-hover.png') center no-repeat;
+	background-size: 20px 20px;
+}
+
+#ranking td:nth-child(2) a img {
+	float: right;
+	padding: 0 3px;
+	vertical-align: middle;
+}
+
+#ranking td:nth-child(3) {
+	text-align: right;
+}
+
+#ranking td:nth-child(4) {
+	text-align: right;
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="CONSOLE_LOG_PATTERN" value="%d [%thread] %-5level %logger{50}: %msg%n" />
+
+	<appender name="BOBCAT-FILE" class="ch.qos.logback.core.FileAppender">
+		<file>bobcat.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<appender name="ANALYTICS-FILE" class="ch.qos.logback.core.FileAppender">
+		<file>analytics.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org" level="INFO" additivity="false">
+		<appender-ref ref="ANALYTICS-FILE" />
+	</logger>
+	<logger name="com" level="INFO" additivity="false">
+		<appender-ref ref="ANALYTICS-FILE" />
+	</logger>
+	<logger name="uk.mm.bobcat" level="DEBUG" additivity="false">
+		<appender-ref ref="ANALYTICS-FILE" />
+	</logger>
+	<logger name="uk.mm.bobcat.interceptors" level="DEBUG" additivity="false">
+		<appender-ref ref="ANALYTICS-FILE" />
+	</logger>
+	<logger name="uk.mm.bobcat.controller.CommonDataController" level="DEBUG" additivity="false">
+		<appender-ref ref="ANALYTICS-FILE" />
+	</logger>
+
+	<logger name="uk.mm.bobcat" level="INFO" additivity="false">
+		<appender-ref ref="BOBCAT-FILE" />
+	</logger>
+</configuration>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- attention: css for a name-candidate is currently in notd.css -->
+	<div class="candidate" style="position: relative;">
+		<span th:text="${name}">noname</span>
+		<ul class="popupmenu">
+			<li th:onclick="|addName(this, '${name}')|">Add to competition...</li>
+			<li th:onclick="|modifyName(this, '${name}')|">Modify + add to competition...</li>
+		</ul>
+	</div>
+</body>
+</html>

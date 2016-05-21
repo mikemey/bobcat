@@ -1,0 +1,75 @@
+div#content td:first-child {
+	width: 270px;
+}
+
+div#content>h2 {
+	float: left;
+	margin-top: 0;
+	margin-right: 10px;
+}
+
+div#content>div {
+	float: left;
+	font-size: 21px;
+}
+
+div#content table {
+	clear: both;
+}
+
+/* CSS-styles for name-candiate popup menu:  */
+.candidate {
+	cursor: pointer;
+	text-shadow: none;
+}
+
+.candidate span {
+	color: #2D2DB5;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-decoration: underline;
+	/* 	placeholder for background plus-sign (visible when candidate was added) */
+	padding-right: 16px;
+}
+
+.popupmenu {
+	font-size: 14px;
+	visibility: hidden;
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	z-index: 100;
+	min-width: 220px;
+	margin: 0;
+	background-color: #F0F0F0;
+	border-radius: 7px;
+	border: 1px solid #D0D0D0;
+	padding: 5px;
+}
+
+.candidate:hover .popupmenu {
+	visibility: visible;
+}
+
+.popupmenu li {
+	list-style-type: none;
+	padding: 0 5px;
+}
+
+.popupmenu li:hover {
+	background-color: #C6C67B;
+}
+
+.popupmenu li:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.popupmenu li:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.plussign {
+	background: url("/images/plus_small.png") right top no-repeat;
+}

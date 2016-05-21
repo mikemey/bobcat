@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="fragments/html_head"></meta>
+<link rel="stylesheet" type="text/css" href="styles/compareNames.css" />
+</head>
+<body>
+	<div th:replace="fragments/menu_bar"></div>
+
+	<div class="cmp textbg" th:if="${!names.isValid()}">
+		<h3 th:text="${names.first}"></h3>
+	</div>
+	<div class="cmp" th:if="${names.isValid()}">
+		<div id="cmpTitle">
+			<h2>Which name do you prefer?</h2>
+		</div>
+		<div id="left" class="nameArea" onclick="preferName(this);">
+			<p id="leftText" th:text="${names.first}">${names.first}</p>
+		</div>
+		<div id="right" class="nameArea" onclick="preferName(this);">
+			<p id="rightText" th:text="${names.second}">${names.second}</p>
+		</div>
+		<div id="cmpFooter" class="textbg">
+			<p id="result">&nbsp;</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="/scripts/compareNames.js"></script>
+</body>
+</html>
