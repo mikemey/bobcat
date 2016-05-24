@@ -3,11 +3,7 @@
 <body>
 	<!-- attention: css for a name-candidate is currently in notd.css -->
 	<div class="candidate" style="position: relative;">
-		<span th:text="${name}">noname</span>
-		<ul class="popupmenu">
-			<li th:onclick="|addName(this, '${name}')|">Add to competition...</li>
-			<li th:onclick="|modifyName(this, '${name}')|">Modify + add to competition...</li>
-		</ul>
+		<span th:onclick="|modifyName(this, '${name}')|" th:text="${name}">noname</span>
 	</div>
 </body>
 </html>

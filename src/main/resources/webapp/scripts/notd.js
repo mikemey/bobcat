@@ -8,10 +8,6 @@ function findNewName() {
 	return false;
 }
 
-function addName(elmt, name) {
-	postNewName(elmt, name);
-}
-
 function modifyName(elmt, name) {
 	var retval = window.prompt('Add name to competition:', name);
 	if (retval) {
@@ -22,9 +18,6 @@ function postNewName(elmt, newname) {
 	$.post('ranking/add_name', {
 		name : newname
 	}, function() {
-		var ulElement = $(elmt.parentNode);
-		ulElement.fadeOut(200);
-		var nameSpan = ulElement.prev();
-		nameSpan.addClass('plussign');
+		$(elmt).addClass('plussign');
 	});
 }
